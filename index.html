@@ -4,169 +4,166 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EVERGREENS G&S - Natur. Pflege. Perfektion.</title>
-    
-
-<style>
-:root {
-    --primary: #1b4332;
-    --secondary: #2d6a4f;
-    --accent: #52b788;
-    --light: #f4f6f4;
-    --dark: #2d3748;
-}
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    color: var(--dark);
-    background-color: var(--light);
-    line-height: 1.6;
-}
-header {
-    background: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-}
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--primary);
-}
-nav a {
-    margin-left: 20px;
-    text-decoration: none;
-    color: var(--dark);
-    font-weight: 500;
-    transition: color 0.3s;
-}
-nav a:hover {
-    color: var(--accent);
-}
-.hero {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1557429287-b2e26467fc2b?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-    color: white;
-    text-align: center;
-    padding: 120px 20px;
-}
-.hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-}
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-.btn {
-    display: inline-block;
-    background-color: var(--accent);
-    color: white;
-    padding: 12px 25px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background 0.3s;
-    border: none;
-    cursor: pointer;
-}
-.btn:hover {
-    background-color: var(--secondary);
-}
-section {
-    padding: 80px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-h2 {
-    text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 50px;
-    color: var(--primary);
-}
-.services-grid, .reviews-grid, .team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-.service-card, .review-card, .team-card {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-.service-card h3, .team-card h3 {
-    color: var(--primary);
-    margin-top: 0;
-}
-.service-list {
-    list-style-type: disc;
-    padding-left: 20px;
-}
-.tech-section {
-    background: white;
-    text-align: center;
-    border-radius: 10px;
-    padding: 50px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-.review-stars {
-    color: #f1c40f;
-    margin-bottom: 10px;
-}
-.review-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.review-author {
-    font-weight: bold;
-    margin-top: 15px;
-    color: var(--secondary);
-}
-.review-form-container, .contact-form {
-    background: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    margin-top: 50px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.form-group {
-    margin-bottom: 20px;
-}
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-.form-group input, .form-group select, .form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #cbd5e0;
-    border-radius: 6px;
-    font-size: 1rem;
-    box-sizing: border-box;
-}
-footer {
-    background: var(--primary);
-    color: white;
-    text-align: center;
-    padding: 40px 20px;
-    margin-top: 50px;
-}
-</style>
-
+    <style>
+        :root {
+            --primary: #1b4332;
+            --secondary: #2d6a4f;
+            --accent: #52b788;
+            --light: #f4f6f4;
+            --dark: #2d3748;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+        header {
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: var(--accent);
+        }
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1557429287-b2e26467fc2b?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+        }
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: var(--secondary);
+        }
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            color: var(--primary);
+        }
+        .services-grid, .reviews-grid, .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .service-card, .review-card, .team-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .service-card h3, .team-card h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+        .service-list {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        .tech-section {
+            background: white;
+            text-align: center;
+            border-radius: 10px;
+            padding: 50px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .review-stars {
+            color: #f1c40f;
+            margin-bottom: 10px;
+        }
+        .review-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .review-author {
+            font-weight: bold;
+            margin-top: 15px;
+            color: var(--secondary);
+        }
+        .review-form-container, .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            margin-top: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e0;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+    </style>
 </head>
 <body>
     <header>
