@@ -217,67 +217,6 @@
             line-height: 1.7;
         }
 
-        /* Reviews Section */
-        .reviews-section {
-            background-color: #e9f0ec;
-            padding: 4rem 2rem;
-        }
-
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto 3rem auto;
-        }
-
-        .review-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            border-left: 4px solid var(--accent);
-        }
-
-        .review-stars {
-            color: var(--accent);
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-        }
-
-        .review-text {
-            color: var(--gray);
-            font-style: italic;
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .review-author {
-            font-weight: bold;
-            color: var(--primary);
-            font-size: 0.95rem;
-        }
-
-        /* Review Submission Box */
-        .review-form-container {
-            max-width: 700px;
-            margin: 0 auto;
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        .review-form-container h3 {
-            color: var(--primary);
-            text-align: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-        }
-
         /* Team / Owners Section */
         .team-section {
             padding: 4rem 2rem;
@@ -367,7 +306,6 @@
         }
 
         .form-group input,
-        .form-group select,
         .form-group textarea {
             width: 100%;
             padding: 0.8rem;
@@ -378,7 +316,7 @@
 
         .form-group textarea {
             resize: vertical;
-            height: 120px;
+            height: 150px;
         }
 
         .submit-btn {
@@ -430,7 +368,6 @@
                 <li><a href="#leistungen">Leistungen</a></li>
                 <li><a href="#philosophie">Philosophie</a></li>
                 <li><a href="#technik">Ausstattung</a></li>
-                <li><a href="#bewertungen">Bewertungen</a></li>
                 <li><a href="#team">Inhaber</a></li>
                 <li><a href="#kontakt">Kontakt</a></li>
             </ul>
@@ -458,6 +395,7 @@
     <section class="container" id="leistungen">
         <h2 class="section-title">Unsere Leistungen</h2>
         <div class="services-grid">
+            <!-- Rasenpflege -->
             <div class="service-card">
                 <h3>Rasen- & Grünpflege</h3>
                 <ul class="service-list">
@@ -468,6 +406,7 @@
                     <li>Grünschnitt entsorgen</li>
                 </ul>
             </div>
+            <!-- Baum & Gehölz -->
             <div class="service-card">
                 <h3>Baum- & Gehölzpflege</h3>
                 <ul class="service-list">
@@ -478,6 +417,7 @@
                     <li>Baumfällung & Wurzelrodung</li>
                 </ul>
             </div>
+            <!-- Garten & Landschaftsbau -->
             <div class="service-card">
                 <h3>Garten- & Tiefbau</h3>
                 <ul class="service-list">
@@ -488,6 +428,7 @@
                     <li>Unratentfernung</li>
                 </ul>
             </div>
+            <!-- Bewässerung -->
             <div class="service-card">
                 <h3>Bewässerungssysteme</h3>
                 <ul class="service-list">
@@ -497,6 +438,7 @@
                     <li>Gehölz- & Baumwässerung</li>
                 </ul>
             </div>
+            <!-- Winterdienst -->
             <div class="service-card">
                 <h3>Winterdienst</h3>
                 <ul class="service-list">
@@ -514,63 +456,7 @@
     <section class="equipment-section" id="technik">
         <div class="equipment-container">
             <h2>Moderne Maschinen & Ausrüstung</h2>
-            <p>Moderne Arbeitsgeräte erleichtern die Arbeit und liefern gleichmäßige, saubere Ergebnisse. Wir investieren kontinuierlich in hochwertige Fahrzeuge, Aufsitzmäher, Kehrmaschinen und akkubetriebene Profigeräte (Laubpuster, Motorsägen), um Lärm zu minimieren und effizient zu arbeiten.</p>
-        </div>
-    </section>
-
-    <!-- Reviews Section -->
-    <section class="reviews-section" id="bewertungen">
-        <div class="container" style="padding-top: 0; padding-bottom: 0;">
-            <h2 class="section-title">Was unsere Kunden sagen</h2>
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div>
-                        <div class="review-stars">★★★★★</div>
-                        <p class="review-text">"Evergreens G&S hat unseren völlig verwilderten Garten komplett transformiert. Von der Rasenpflege bis zum Gehölzschnitt absolut professionell, pünktlich und sauber gearbeitet!"</p>
-                    </div>
-                    <p class="review-author">— Markus W., Hausverwalter</p>
-                </div>
-                <div class="review-card">
-                    <div>
-                        <div class="review-stars">★★★★★</div>
-                        <p class="review-text">"Der Winterdienst funktioniert absolut reibungslos. Man muss sich um nichts kümmern – wenn Schnee fällt, sind die Wege zuverlässig geräumt."</p>
-                    </div>
-                    <p class="review-author">— Sabine K., Eigentümerin</p>
-                </div>
-                <div class="review-card">
-                    <div>
-                        <div class="review-stars">★★★★★</div>
-                        <p class="review-text">"Freundlicher Kontakt, faire Preise und erstklassige Ausführung bei unseren Pflaster- und Wegebauten. Absolut empfehlenswert!"</p>
-                    </div>
-                    <p class="review-author">— Thomas B., Privatkunde</p>
-                </div>
-            </div>
-
-            <!-- Review Submission Form -->
-            <div class="review-form-container">
-                <h3>Teilen Sie Ihre Erfahrung</h3>
-                <form id="reviewForm">
-                    <div class="form-group">
-                        <label for="reviewName">Ihr Name</label>
-                        <input type="text" id="reviewName" required placeholder="Vollständiger Name">
-                    </div>
-                    <div class="form-group">
-                        <label for="reviewRating">Bewertung</label>
-                        <select id="reviewRating" required>
-                            <option value="★★★★★">★★★★★ (5/5 - Ausgezeichnet)</option>
-                            <option value="★★★★☆">★★★★☆ (4/5 - Sehr gut)</option>
-                            <option value="★★★☆☆">★★★☆☆ (3/5 - Gut)</option>
-                            <option value="★★☆☆☆">★★☆☆☆ (2/5 - Ausreichend)</option>
-                            <option value="★☆☆☆☆">★☆☆☆☆ (1/5 - Mangelhaft)</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="reviewMessage">Ihre Bewertung</label>
-                        <textarea id="reviewMessage" required placeholder="Schreiben Sie hier Ihr Feedback..."></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn" id="submitReviewBtn">Bewertung Absenden</button>
-                </form>
-            </div>
+            <p>Moderne Arbeitsgeräte erleichtern die Arbeit und liefern gleichmäßige, saubere Ergebnisse. Wir investieren kontinuierlich in hochwertige Fahrzeuge, Aufsitzmäher, Kehrmaschinen und akkubetriebene Profigeräte (Laubpuster, Motorsägen), um Lärm zu minimieren und effizient zu arbeiten. Altbewährtes wird sorgfältig gepflegt – stets mit Blick auf höchste Qualität.</p>
         </div>
     </section>
 
@@ -612,7 +498,7 @@
                 </div>
                 <div class="form-group">
                     <label for="message">Ihre Nachricht</label>
-                    <textarea id="message" required placeholder="Beschreiben Sie Ihr Anliegen..."></textarea>
+                    <textarea id="message" required placeholder="Beschreiben Sie Ihr Anliegen (z.B. Gartengestaltung, Winterdienst)..."></textarea>
                 </div>
                 <button type="submit" class="submit-btn">Nachricht Senden</button>
             </form>
@@ -625,10 +511,5 @@
         <p>Natur. Pflege. Perfektion. | Grün denken. Klar handeln.</p>
     </footer>
 
-    <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwkFqN2fKCmI5A8v-OUvViSNsInlERmbX0biE1gdVRiMIfPSqAkuyg-zHgPCADxvI5N3Q/exec';
-
-        const form = document.getElementById('reviewForm');
-        form.addEventListener('submit', e => {
-            e.preventDefault();
-            const btn = document.
+</body>
+</html>
