@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EVERGREENS G&S | Natur. Pflege. Perfektion.</title>
+<style>
+    :root {
+        --primary: #1b3b2b;
+        --primary-light: #2c5e43;
+        --accent: #d4af37;
+        --light: #f4f6f4;
+        --dark: #222222;
+        --white: #ffffff;
+        --gray: #666666;
+        --transition: all 0.3s ease;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: var(--dark); background-color: var(--light); line-height: 1.6; }
+    header { background-color: var(--primary); color: var(--white); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+    .navbar { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
+    .logo { font-size: 1.5rem; font-weight: bold; color: var(--white); text-decoration: none; }
+    .logo span { color: var(--accent); }
+    .nav-links { list-style: none; display: flex; gap: 2rem; }
+    .nav-links a { color: var(--white); text-decoration: none; font-weight: 500; transition: var(--transition); }
+    .nav-links a:hover { color: var(--accent); }
+    .hero { background: linear-gradient(rgba(27, 59, 43, 0.85), rgba(27, 59, 43, 0.85)), url('https://images.unsplash.com/photo-1558904541-efa873a876a3?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover; color: var(--white); text-align: center; padding: 8rem 2rem; }
+    .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.3rem; margin-bottom: 2rem; color: #e0e8e2; font-style: italic; }
+    .btn { display: inline-block; background-color: var(--accent); color: var(--dark); padding: 0.8rem 2rem; border-radius: 4px; text-decoration: none; font-weight: bold; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 5rem 2rem; }
+    .philosophy { background-color: var(--primary-light); color: var(--white); text-align: center; padding: 4rem 2rem; }
+    .philosophy h2 { font-size: 2.2rem; margin-bottom: 1rem; }
+    .section-title { text-align: center; font-size: 2.5rem; color: var(--primary); margin-bottom: 3rem; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    .service-card { background: var(--white); padding: 2.5rem; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--primary-light); }
+    .service-card h3 { color: var(--primary); margin-bottom: 1rem; }
+    .team-section { background-color: var(--white); padding: 5rem 2rem; }
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 900px; margin: 0 auto; }
+    .team-card { background: var(--light); padding: 2.5rem; border-radius: 8px; text-align: center; border: 1px solid #e0e8e2; }
+    .team-card h3 { color: var(--primary); margin-bottom: 0.5rem; }
+    .phone-link { display: inline-block; background-color: var(--primary); color: var(--white); padding: 0.6rem 1.2rem; border-radius: 4px; text-decoration: none; margin-top: 1rem; }
+    .contact-section { max-width: 700px; margin: 0 auto; background: var(--white); padding: 3rem; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+    .form-group { margin-bottom: 1.5rem; }
+    .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+    .form-group input, .form-group textarea { width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 4px; }
+    .form-group textarea { height: 150px; }
+    .submit-btn { background-color: var(--primary); color: var(--white); border: none; padding: 0.9rem 2rem; border-radius: 4px; font-weight: bold; cursor: pointer; width: 100%; }
+    footer { background-color: var(--dark); color: var(--white); text-align: center; padding: 2rem; margin-top: 4rem; }
+    footer p { color: #aaa; font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<header>
+    <div class="navbar">
+        <a href="#" class="logo">EVERGREENS <span>G&S</span></a>
+        <ul class="nav-links">
+            <li><a href="#leistungen">Leistungen</a></li>
+            <li><a href="#philosophie">Philosophie</a></li>
+            <li><a href="#team">Inhaber</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+    </div>
+</header>
+<section class="hero">
+    <div class="container">
+        <h1>EVERGREENS G&S</h1>
+        <p>Natur. Pflege. Perfektion.</p>
+        <a href="#kontakt" class="btn">Unverbindlich Anfragen</a>
+    </div>
+</section>
+<section id="philosophie" class="philosophy">
+    <div class="container" style="padding: 0;">
+        <h2>Grün denken. Klar handeln. Evergreens!</h2>
+        <p>Ihr verlässlicher Partner für professionelle Garten- und Grundstückspflege.</p>
+    </div>
+</section>
+<section class="container" id="leistungen">
+    <h2 class="section-title">Unsere Leistungen</h2>
+    <div class="services-grid">
+        <div class="service-card">
+            <h3>Gartengestaltung & Pflege</h3>
+            <p>Individuelle Konzeption, professioneller Schnitt und ganzheitliche Pflege für Ihren Gartenbereich.</p>
+        </div>
+        <div class="service-card">
+            <h3>Natur- & Pflasterarbeiten</h3>
+            <p>Präzise Verlegung von Naturstein und Pflasterflächen für Wege, Einfahrten und Terrassen.</p>
+        </div>
+        <div class="service-card">
+            <h3>Grundstückspflege</h3>
+            <p>Nachhaltige Instandhaltung und Sauberkeit für private und gewerbliche Außenanlagen.</p>
+        </div>
+    </div>
+</section>
+<section class="team-section" id="team">
+    <div class="container" style="padding-top: 0; padding-bottom: 0;">
+        <h2 class="section-title">Ihre Ansprechpartner</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <h3>Seyhan Miranov</h3>
+                <p style="color: #666; margin-bottom: 1rem;">Inhaber</p>
+                <a href="tel:01766464243" class="phone-link">📞 0176 6464243</a>
+            </div>
+            <div class="team-card">
+                <h3>Galin Krastev</h3>
+                <p style="color: #666; margin-bottom: 1rem;">Inhaber</p>
+                <a href="tel:01787121820" class="phone-link">📞 0178 7121820</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="container" id="kontakt">
+    <h2 class="section-title">Kontaktieren Sie uns</h2>
+    <div class="contact-section">
+        <p style="text-align: center; margin-bottom: 1.5rem; color: #666;">E-Mail: <a href="mailto:evergreens-gs@outlook.com" style="color: var(--primary); font-weight: bold;">evergreens-gs@outlook.com</a></p>
+        <form onsubmit="event.preventDefault(); alert('Vielen Dank für Ihre Anfrage! Wir melden uns zeitnah bei Ihnen.');">
+            <div class="form-group">
+                <label>Ihr Name</label>
+                <input type="text" required placeholder="Vollständiger Name">
+            </div>
+            <div class="form-group">
+                <label>Ihre E-Mail-Adresse</label>
+                <input type="email" required placeholder="beispiel@domain.de">
+            </div>
+            <div class="form-group">
+                <label>Ihre Nachricht</label>
+                <textarea required placeholder="Beschreiben Sie Ihr Anliegen..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Nachricht Senden</button>
+        </form>
+    </div>
+</section>
+<footer>
+    <p>&copy; 2026 EVERGREENS G&S. Alle Rechte vorbehalten.</p>
+    <p>Natur. Pflege. Perfektion.</p>
+</footer>
+</body>
+</html>
