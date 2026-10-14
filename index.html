@@ -628,97 +628,56 @@
 
     <!-- Review Form Script -->
     
-<script>
-    const translations = {
-        de: {
-            nav_services: "Leistungen",
-            nav_phil: "Philosophie",
-            nav_tech: "Ausstattung",
-            nav_reviews: "Bewertungen",
-            nav_team: "Inhaber",
-            nav_contact: "Kontakt",
-            hero_title: "EVERGREENS G&S",
-            hero_subtitle: "Natur. Pflege. Perfektion.",
-            hero_btn: "Unverbindlich Anfragen",
-            phil_title: "Grün denken. Klar handeln. Evergreens!",
-            phil_desc: "Familiengeführtes Unternehmen mit Leidenschaft für professionelle Grünanlagen- und Grundstückspflege.",
-            services_title: "Unsere Leistungen",
-            s1_title: "Rasen- & Grünpflege",
-            s2_title: "Baum- & Gehölzpflege",
-            s3_title: "Garten- & Tiefbau",
-            s4_title: "Bewässerungssysteme",
-            s5_title: "Winterdienst",
-            tech_title: "Moderne Maschinen & Ausrüstung",
-            reviews_title: "Was unsere Kunden sagen",
-            review_form_title: "Teilen Sie Ihre Erfahrung",
-            team_title: "Ihre Ansprechpartner",
-            role: "Inhaber",
-            contact_title: "Kontaktieren Sie uns"
-        },
-        en: {
-            nav_services: "Services",
-            nav_phil: "Philosophy",
-            nav_tech: "Equipment",
-            nav_reviews: "Reviews",
-            nav_team: "Owners",
-            nav_contact: "Contact",
-            hero_title: "EVERGREENS G&S",
-            hero_subtitle: "Nature. Care. Perfection.",
-            hero_btn: "Request a Quote",
-            phil_title: "Think green. Act clearly. Evergreens!",
-            phil_desc: "Family-run business with a passion for professional landscaping and property maintenance.",
-            services_title: "Our Services",
-            s1_title: "Lawn & Green Care",
-            s1_i1: "Lawn mowing & edging",
-            s1_i2: "Lawn aeration & fertilization",
-            s1_i3: "Seeding & laying turf",
-            s1_i4: "Weed & leaf removal",
-            s1_i5: "Green waste disposal",
-            s2_title: "Tree & Shrub Care",
-            s2_i1: "Shrub trimming & fertilization",
-            s2_i2: "Fruit tree pruning",
-            s2_i3: "Crown care & deadwood removal",
-            s2_i4: "Clearance pruning",
-            s2_i5: "Tree felling & root removal",
-            s3_title: "Garden & Civil Engineering",
-            s3_i1: "Paving & curbing",
-            s3_i2: "Terrace & path construction",
-            s3_i3: "Fence building & flower beds",
-            s3_i4: "Soil cultivation & compost",
-            s3_i5: "Debris removal",
-            s4_title: "Irrigation Systems",
-            s4_i1: "Professional planning",
-            s4_i2: "Expert installation & construction",
-            s4_i3: "Maintenance & servicing",
-            s4_i4: "Shrub & tree watering",
-            s5_title: "Winter Service",
-            s5_i1: "Snow and ice clearance",
-            s5_i2: "24h seasonal readiness",
-            s5_i3: "Independent on-site checks",
-            s5_i4: "Reliable & proactive deployment",
-            s5_i5: "Pathway & yard cleaning",
-            tech_title: "Modern Machinery & Equipment",
-            reviews_title: "What Our Customers Say",
-            review_form_title: "Share Your Experience",
-            team_title: "Your Contacts",
-            role: "Owner",
-            contact_title: "Contact Us"
-        }
-    };
-
-    let currentLang = 'de';
-    const toggleBtn = document.getElementById('langToggle');
-    if (toggleBtn) {
-        toggleBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            currentLang = currentLang === 'de' ? 'en' : 'de';
-            this.textContent = currentLang === 'de' ? 'EN / DE' : 'DE / EN';
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[currentLang][key]) {
-                    el.textContent = translations[currentLang][key];
+    <script>
+        const scriptURL = "https://script.google.com/macros/s/AKfycbxL-WXx-roQYRqQaxwLTSG8d52MYzGI5m53HuCh_eMPRhvP6aUm0NzaecckB8wZYadxEw/exec";
+        const form = document.getElementById("reviewForm");
+        if(form){
+            form.addEventListener("submit", function(e) {
+                e.preventDefault();
+                const btn = document.getElementById("submitReviewBtn") || form.querySelector("button[type=\"submit\"]");
+                if(btn) {
+                    btn.disabled = true;
+                    btn.textContent = "Wird gesendet...";
                 }
+                const body = {
+                    name: document.getElementById("reviewName").value,
+                    rating: document.getElementById("reviewRating").value,
+                    review: document.getElementById("reviewMessage").value
+                };
+
+                // Instantly prepend to grid
+                const grid = document.querySelector(".reviews-grid");
+                if (grid) {
+                    const card = document.createElement("div");
+                    card.className = "review-card";
+                    card.innerHTML = `<div><div class=\"review-stars\">${body.rating}</div><p class=\"review-text\">"${body.review}"</p></div><p class=\"review-author\">— ${body.name}</p>`;
+                    grid.prepend(card);
+                }
+
+                fetch(scriptURL, {
+                    method: "POST",
+                    mode: "no-cors",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(body)
+                })
+                .then(function() {
+                    alert("Vielen Dank! Ihre Bewertung wurde übermittelt.");
+                    form.reset();
+                    if(btn) {
+                        btn.disabled = false;
+                        btn.textContent = "Bewertung Absenden";
+                    }
+                })
+                .catch(function(error) {
+                    console.error("Error!", error);
+                    alert("Bewertung wurde lokal angezeigt. Danke!");
+                    if(btn) {
+                        btn.disabled = false;
+                        btn.textContent = "Bewertung Absenden";
+                    }
+                });
             });
-        });
-    }
-</script>
+        }
+    </script>
+</body>
+</html>
