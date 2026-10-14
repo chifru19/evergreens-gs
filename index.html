@@ -3,665 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EVERGREENS G&S | Natur. Pflege. Perfektion.</title>
-    <style>
-        :root {
-            --primary: #1b3b2b;
-            --primary-light: #2c5e43;
-            --accent: #d4af37;
-            --light: #f4f6f4;
-            --dark: #222222;
-            --white: #ffffff;
-            --gray: #666666;
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--dark);
-            background-color: var(--light);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
-
-        /* Header & Navigation */
-        header {
-            background-color: var(--primary);
-            color: var(--white);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-
-        .navbar {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.8rem 2rem;
-        }
-
-        .logo img {
-            height: 45px;
-            vertical-align: middle;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .nav-links a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(27, 59, 43, 0.85), rgba(27, 59, 43, 0.85)), url('https://images.unsplash.com/photo-1558904541-efa873a876a3?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
-            color: var(--white);
-            text-align: center;
-            padding: 7rem 2rem;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            letter-spacing: 1px;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            color: #e0e8e2;
-            font-style: italic;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: var(--dark);
-            padding: 0.8rem 2rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: var(--transition);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .btn:hover {
-            background-color: #e6c547;
-            transform: translateY(-2px);
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        /* Philosophy Banner */
-        .philosophy {
-            background-color: var(--primary-light);
-            color: var(--white);
-            text-align: center;
-            padding: 3rem 2rem;
-        }
-
-        .philosophy h2 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .philosophy p {
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            color: #d1e7dd;
-        }
-
-        /* Services Grid */
-        .section-title {
-            text-align: center;
-            font-size: 2.3rem;
-            color: var(--primary);
-            margin-bottom: 2.5rem;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: var(--transition);
-            border-top: 4px solid var(--primary-light);
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-
-        .service-card h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .service-list {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .service-list li {
-            position: relative;
-            padding-left: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--gray);
-            font-size: 0.95rem;
-        }
-
-        .service-list li::before {
-            content: "•";
-            color: var(--accent);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        /* Equipment / Quality Section */
-        .equipment-section {
-            background-color: var(--white);
-            padding: 4rem 2rem;
-            border-top: 1px solid #e0e8e2;
-            border-bottom: 1px solid #e0e8e2;
-        }
-
-        .equipment-container {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .equipment-container h2 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 2rem;
-        }
-
-        .equipment-container p {
-            color: var(--gray);
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
-
-        /* Reviews Section Styles */
-        .reviews-section {
-            background-color: #e9f0ec;
-            padding: 4rem 2rem;
-        }
-
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto 3rem auto;
-        }
-
-        .review-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            border-left: 4px solid var(--accent);
-        }
-
-        .review-stars {
-            color: var(--accent);
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-        }
-
-        .review-text {
-            color: var(--gray);
-            font-style: italic;
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .review-author {
-            font-weight: bold;
-            color: var(--primary);
-            font-size: 0.95rem;
-        }
-
-        .review-form-container {
-            max-width: 700px;
-            margin: 0 auto;
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        .review-form-container h3 {
-            color: var(--primary);
-            text-align: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-        }
-
-        /* Team / Owners Section */
-        .team-section {
-            padding: 4rem 2rem;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .team-card {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 8px;
-            text-align: center;
-            border: 1px solid #e0e8e2;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-        }
-
-        .team-card h3 {
-            color: var(--primary);
-            margin-bottom: 0.3rem;
-            font-size: 1.3rem;
-        }
-
-        .team-card p.role {
-            color: var(--gray);
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .phone-link {
-            display: inline-block;
-            background-color: var(--primary);
-            color: var(--white);
-            padding: 0.6rem 1.2rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .phone-link:hover {
-            background-color: var(--primary-light);
-        }
-
-        /* Contact Section */
-        .contact-section {
-            max-width: 700px;
-            margin: 0 auto;
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        .contact-info {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .contact-info p {
-            font-size: 1.1rem;
-            color: var(--gray);
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-info a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-family: inherit;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            height: 150px;
-        }
-
-        .submit-btn {
-            background-color: var(--primary);
-            color: var(--white);
-            border: none;
-            padding: 0.9rem 2rem;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-            transition: var(--transition);
-        }
-
-        .submit-btn:hover {
-            background-color: var(--primary-light);
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: var(--white);
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-        }
-
-        footer p {
-            color: #aaa;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .nav-links { display: none; }
-        }
-    </style>
+    <title>EVERGREENS G&S - Natur. Pflege. Perfektion.</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <!-- Header & Navigation -->
     <header>
-        <div class="navbar">
-            <a href="#" class="logo">
-                <img src="logo.png" alt="EVERGREENS G&S Logo">
-            </a>
-            <ul class="nav-links">
-                <li><a href="#leistungen">Leistungen</a></li>
-                <li><a href="#philosophie">Philosophie</a></li>
-                <li><a href="#technik">Ausstattung</a></li>
-                <li><a href="#bewertungen">Bewertungen</a></li>
-                <li><a href="#team">Inhaber</a></li>
-                <li><a href="#kontakt">Kontakt</a></li>
-            </ul>
+        <div class="nav-container">
+            <div class="logo">EVERGREENS G&S</div>
+            <nav>
+                <a href="#leistungen" data-i18n="nav_services">Leistungen</a>
+                <a href="#philosophie" data-i18n="nav_phil">Philosophie</a>
+                <a href="#ausstattung" data-i18n="nav_tech">Ausstattung</a>
+                <a href="#bewertungen" data-i18n="nav_reviews">Bewertungen</a>
+                <a href="#inhaber" data-i18n="nav_team">Inhaber</a>
+                <a href="#kontakt" data-i18n="nav_contact">Kontakt</a>
+                <a href="#" id="langToggle" style="font-weight: bold; margin-left: 15px; color: var(--accent);">EN / DE</a>
+            </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <h1>EVERGREENS G&S</h1>
-            <p>Natur. Pflege. Perfektion.</p>
-            <a href="#kontakt" class="btn">Unverbindlich Anfragen</a>
+        <div class="hero-content">
+            <h1 data-i18n="hero_title">Natur. Pflege. Perfektion.</h1>
+            <p data-i18n="hero_subtitle">Grün denken. Klar handeln. Evergreens!</p>
+            <p data-i18n="hero_desc">Familiengeführtes Unternehmen mit Leidenschaft für professionelle Grünanlagen- und Grundstückspflege.</p>
+            <a href="#kontakt" class="btn" data-i18n="hero_btn">Unverbindlich Anfragen</a>
         </div>
     </section>
 
-    <!-- Philosophy Banner -->
-    <section id="philosophie" class="philosophy">
-        <div class="container" style="padding: 0;">
-            <h2>Grün denken. Klar handeln. Evergreens!</h2>
-            <p>Familiengeführtes Unternehmen mit Leidenschaft für professionelle Grünanlagen- und Grundstückspflege.</p>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="container" id="leistungen">
-        <h2 class="section-title">Unsere Leistungen</h2>
+    <section class="services-section" id="leistungen">
+        <h2 data-i18n="services_title">Unsere Leistungen</h2>
         <div class="services-grid">
             <div class="service-card">
                 <h3 data-i18n="s1_title">Rasen- & Grünpflege</h3>
                 <ul class="service-list">
-                    <li>Rasenmahd & Rasenkanten stechen</li>
-                    <li>Rasen vertikutieren & düngen</li>
-                    <li>Rasen säen & Rollrasen verlegen</li>
-                    <li>Unkraut- und Laubentfernung</li>
-                    <li>Grünschnitt entsorgen</li>
+                    <li data-i18n="s1_i1">Rasenmahd & Rasenkanten stechen</li>
+                    <li data-i18n="s1_i2">Rasen vertikutieren & düngen</li>
+                    <li data-i18n="s1_i3">Rasen säen & Rollrasen verlegen</li>
+                    <li data-i18n="s1_i4">Unkraut- und Laubentfernung</li>
+                    <li data-i18n="s1_i5">Grünschnitt entsorgen</li>
                 </ul>
             </div>
             <div class="service-card">
                 <h3 data-i18n="s2_title">Baum- & Gehölzpflege</h3>
                 <ul class="service-list">
-                    <li>Gehölzschnitt & Gehölze düngen</li>
-                    <li>Obstbaumschnitt</li>
-                    <li>Kronenpflege & Totholzentfernung</li>
-                    <li>Lichtraumschnitt</li>
-                    <li>Baumfällung & Wurzelrodung</li>
+                    <li data-i18n="s2_i1">Gehölzschnitt & Gehölze düngen</li>
+                    <li data-i18n="s2_i2">Obstbaumschnitt</li>
+                    <li data-i18n="s2_i3">Kronenpflege & Totholzentfernung</li>
+                    <li data-i18n="s2_i4">Lichtraumschnitt</li>
+                    <li data-i18n="s2_i5">Baumfällung & Wurzelrodung</li>
                 </ul>
             </div>
             <div class="service-card">
                 <h3 data-i18n="s3_title">Garten- & Tiefbau</h3>
                 <ul class="service-list">
-                    <li>Pflasterarbeiten & Borde setzen</li>
-                    <li>Terrassenbau & Wegebau</li>
-                    <li>Zaunbau & Beete anlegen</li>
-                    <li>Bodenbearbeitung & Kompost</li>
-                    <li>Unratentfernung</li>
+                    <li data-i18n="s3_i1">Pflasterarbeiten & Borde setzen</li>
+                    <li data-i18n="s3_i2">Terrassenbau & Wegebau</li>
+                    <li data-i18n="s3_i3">Zaunbau & Beete anlegen</li>
+                    <li data-i18n="s3_i4">Bodenbearbeitung & Kompost</li>
+                    <li data-i18n="s3_i5">Unratentfernung</li>
                 </ul>
             </div>
             <div class="service-card">
                 <h3 data-i18n="s4_title">Bewässerungssysteme</h3>
                 <ul class="service-list">
-                    <li>Professionelle Planung</li>
-                    <li>Fachgerechter Einbau & Bau</li>
-                    <li>Wartung & Instandhaltung</li>
-                    <li>Gehölz- & Baumwässerung</li>
+                    <li data-i18n="s4_i1">Professionelle Planung</li>
+                    <li data-i18n="s4_i2">Fachgerechter Einbau & Bau</li>
+                    <li data-i18n="s4_i3">Wartung & Instandhaltung</li>
+                    <li data-i18n="s4_i4">Gehölz- & Baumwässerung</li>
                 </ul>
             </div>
             <div class="service-card">
                 <h3 data-i18n="s5_title">Winterdienst</h3>
                 <ul class="service-list">
-                    <li>Beräumung von Schnee und Eis</li>
-                    <li>24h Bereitschaft für die Saison</li>
-                    <li>Selbstständige Kontrollen vor Ort</li>
-                    <li>Zuverlässiger & unaufgeforderter Einsatz</li>
-                    <li>Gehweg- & Hofreinigung</li>
+                    <li data-i18n="s5_i1">Beräumung von Schnee und Eis</li>
+                    <li data-i18n="s5_i2">24h Bereitschaft für die Saison</li>
+                    <li data-i18n="s5_i3">Selbstständige Kontrollen vor Ort</li>
+                    <li data-i18n="s5_i4">Zuverlässiger & unaufgeforderter Einsatz</li>
+                    <li data-i18n="s5_i5">Gehweg- & Hofreinigung</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- Equipment Section -->
-    <section class="equipment-section" id="technik">
-        <div class="equipment-container">
-            <h2 data-i18n="tech_title">Moderne Maschinen & Ausrüstung</h2>
-            <p>Moderne Arbeitsgeräte erleichtern die Arbeit und liefern gleichmäßige, saubere Ergebnisse. Wir investieren kontinuierlich in hochwertige Fahrzeuge, Aufsitzmäher, Kehrmaschinen und akkubetriebene Profigeräte (Laubpuster, Motorsägen), um Lärm zu minimieren und effizient zu arbeiten. Altbewährtes wird sorgfältig gepflegt – stets mit Blick auf höchste Qualität.</p>
-        </div>
+    <section class="tech-section" id="ausstattung">
+        <h2 data-i18n="tech_title">Moderne Maschinen & Ausrüstung</h2>
+        <p data-i18n="tech_desc">Moderne Arbeitsgeräte erleichtern die Arbeit und liefern gleichmäßige, saubere Ergebnisse. Wir investieren kontinuierlich in hochwertige Fahrzeuge, Aufsitzmäher, Kehrmaschinen und akkubetriebene Profigeräte (Laubpuster, Motorsägen), um Lärm zu minimieren und effizient zu arbeiten. Altbewährtes wird sorgfältig gepflegt – stets mit Blick auf höchste Qualität.</p>
     </section>
 
-    <!-- Reviews Section -->
     <section class="reviews-section" id="bewertungen">
-        <div class="container" style="padding-top: 0; padding-bottom: 0;">
-            <h2 class="section-title">Was unsere Kunden sagen</h2>
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div>
-                        <div class="review-stars">★★★★★</div>
-                        <p class="review-text">"Evergreens G&S hat unseren völlig verwilderten Garten komplett transformiert. Von der Rasenpflege bis zum Gehölzschnitt absolut professionell, pünktlich und sauber gearbeitet!"</p>
-                    </div>
-                    <p class="review-author">— Markus W., Hausverwalter</p>
+        <h2 data-i18n="reviews_title">Was unsere Kunden sagen</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"very satisfied"</p>
                 </div>
-                <div class="review-card">
-                    <div>
-                        <div class="review-stars">★★★★★</div>
-                        <p class="review-text">"Der Winterdienst funktioniert absolut reibungslos. Man muss sich um nichts kümmern – wenn Schnee fällt, sind die Wege zuverlässig geräumt."</p>
-                    </div>
-                    <p class="review-author">— Sabine K., Eigentümerin</p>
-                </div>
-                <div class="review-card">
-                    <div>
-                        <div class="review-stars">★★★★★</div>
-                        <p class="review-text">"Freundlicher Kontakt, faire Preise und erstklassige Ausführung bei unseren Pflaster- und Wegebauten. Absolut empfehlenswert!"</p>
-                    </div>
-                    <p class="review-author">— Thomas B., Privatkunde</p>
-                </div>
+                <p class="review-author">— Frank Fru</p>
             </div>
-
-            <!-- Review Form -->
-            <div class="review-form-container">
-                <h3 data-i18n="review_form_title">Teilen Sie Ihre Erfahrung</h3>
-                <form id="reviewForm">
-                    <div class="form-group">
-                        <label for="reviewName">Ihr Name</label>
-                        <input type="text" id="reviewName" required placeholder="Vollständiger Name">
-                    </div>
-                    <div class="form-group">
-                        <label for="reviewRating">Bewertung</label>
-                        <select id="reviewRating" required>
-                            <option value="★★★★★">★★★★★ (5/5 - Ausgezeichnet)</option>
-                            <option value="★★★★☆">★★★★☆ (4/5 - Sehr gut)</option>
-                            <option value="★★★☆☆">★★★☆☆ (3/5 - Gut)</option>
-                            <option value="★★☆☆☆">★★☆☆☆ (2/5 - Ausreichend)</option>
-                            <option value="★☆☆☆☆">★☆☆☆☆ (1/5 - Mangelhaft)</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="reviewMessage">Ihre Bewertung</label>
-                        <textarea id="reviewMessage" required placeholder="Schreiben Sie hier Ihr Feedback..."></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn" id="submitReviewBtn">Bewertung Absenden</button>
-                </form>
+            <div class="review-card">
+                <div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Evergreens G&S hat unseren völlig verwilderten Garten komplett transformiert. Von der Rasenpflege bis zum Gehölzschnitt absolut professionell, pünktlich und sauber gearbeitet!"</p>
+                </div>
+                <p class="review-author">— Markus W., Hausverwalter</p>
+            </div>
+            <div class="review-card">
+                <div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Der Winterdienst funktioniert absolut reibungslos. Man muss sich um nichts kümmern – wenn Schnee fällt, sind die Wege zuverlässig geräumt."</p>
+                </div>
+                <p class="review-author">— Sabine K., Eigentümerin</p>
+            </div>
+            <div class="review-card">
+                <div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Freundlicher Kontakt, faire Preise und erstklassige Ausführung bei unseren Pflaster- und Wegebauten. Absolut empfehlenswert!"</p>
+                </div>
+                <p class="review-author">— Thomas B., Privatkunde</p>
             </div>
         </div>
-    </section>
 
-    <!-- Owners / Direct Contact Section -->
-    <section class="team-section" id="team">
-        <div class="container" style="padding-top: 0; padding-bottom: 0;">
-            <h2 class="section-title">Ihre Ansprechpartner</h2>
-            <div class="team-grid">
-                <div class="team-card">
-                    <h3>Seyhan Miranov</h3>
-                    <p class="role">Inhaber</p>
-                    <a href="tel:01766464243" class="phone-link">📞 0176 6464243</a>
-                </div>
-                <div class="team-card">
-                    <h3>Galin Krastev</h3>
-                    <p class="role">Inhaber</p>
-                    <a href="tel:01787121820" class="phone-link">📞 0178 7121820</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Form Section -->
-    <section class="container" id="kontakt">
-        <h2 class="section-title">Kontaktieren Sie uns</h2>
-        <div class="contact-section">
-            <div class="contact-info">
-                <p>E-Mail: <a href="mailto:evergreens-gs@outlook.com">evergreens-gs@outlook.com</a></p>
-                <p>Wir freuen uns auf Ihre Anfrage oder Nachricht!</p>
-            </div>
-            <form onsubmit="event.preventDefault(); alert('Vielen Dank für Ihre Nachricht! Wir melden uns schnellstmöglich bei Ihnen.');">
+        <div class="review-form-container">
+            <h3 data-i18n="review_form_title">Teilen Sie Ihre Erfahrung</h3>
+            <form id="reviewForm">
                 <div class="form-group">
-                    <label for="name">Ihr Name</label>
-                    <input type="text" id="name" required placeholder="Vollständiger Name">
+                    <label for="reviewName" data-i18n="form_name">Ihr Name</label>
+                    <input type="text" id="reviewName" required placeholder="Ihr Name...">
                 </div>
                 <div class="form-group">
-                    <label for="email">Ihre E-Mail-Adresse</label>
-                    <input type="email" id="email" required placeholder="beispiel@domain.de">
+                    <label for="reviewRating" data-i18n="form_rating">Bewertung (Sterne)</label>
+                    <select id="reviewRating">
+                        <option value="★★★★★">★★★★★ (5/5 - Ausgezeichnet)</option>
+                        <option value="★★★★☆">★★★★☆ (4/5 - Sehr gut)</option>
+                        <option value="★★★☆☆">★★★☆☆ (3/5 - Gut)</option>
+                        <option value="★★☆☆☆">★★☆☆☆ (2/5 - Ausreichend)</option>
+                        <option value="★☆☆☆☆">★☆☆☆☆ (1/5 - Mangelhaft)</option>
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label for="message">Ihre Nachricht</label>
-                    <textarea id="message" required placeholder="Beschreiben Sie Ihr Anliegen (z.B. Gartengestaltung, Winterdienst)..."></textarea>
+                    <label for="reviewMessage" data-i18n="form_message">Ihre Nachricht</label>
+                    <textarea id="reviewMessage" rows="4" required placeholder="Ihre Erfahrung mit Evergreens G&S..."></textarea>
                 </div>
-                <button type="submit" class="submit-btn">Nachricht Senden</button>
+                <button type="submit" class="btn" id="submitReviewBtn" data-i18n="form_submit">Bewertung Absenden</button>
             </form>
         </div>
     </section>
 
-    <!-- Footer -->
+    <section class="team-section" id="inhaber">
+        <h2 data-i18n="team_title">Ihre Ansprechpartner</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <h3>Seyhan Miranov</h3>
+                <span data-i18n="role">Inhaber</span>
+                <p>📞 0176 6464243</p>
+            </div>
+            <div class="team-card">
+                <h3>Galin Krastev</h3>
+                <span data-i18n="role">Inhaber</span>
+                <p>📞 0178 7121820</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="kontakt">
+        <h2 data-i18n="contact_title">Kontaktieren Sie uns</h2>
+        <p>E-Mail: evergreens-gs@outlook.com</p>
+        <p>Wir freuen uns auf Ihre Anfrage oder Nachricht!</p>
+        <form class="contact-form" action="https://formsubmit.co/evergreens-gs@outlook.com" method="POST">
+            <div class="form-group">
+                <label for="name">Ihr Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Ihre E-Mail-Adresse</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Ihre Nachricht</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn">Nachricht Senden</button>
+        </form>
+    </section>
+
     <footer>
         <p>&copy; 2026 EVERGREENS G&S. Alle Rechte vorbehalten.</p>
         <p>Natur. Pflege. Perfektion. | Grün denken. Klar handeln.</p>
+        <p style="margin-top: 10px; font-size: 0.85rem; color: #888;">Engineer: <a href="https://frankfru.com" target="_blank" style="color: var(--accent); text-decoration: none;">Frank Fru</a> | <a href="https://github.com/chifru19" target="_blank" style="color: var(--accent); text-decoration: none;">GitHub</a></p>
     </footer>
-
-    <!-- Review Form Script -->
-    <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwkFqN2fKCmI5A8v-OUvViSNsInlERmbX0biE1gdVRiMIfPSqAkuyg-zHgPCADxvI5N3Q/exec';
-        const form = document.getElementById('reviewForm');
-        if (form) {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const btn = document.getElementById('submitReviewBtn');
-                btn.disabled = true;
-                btn.textContent = 'Wird gesendet...';
-
-                const requestBody = {
-                    name: document.getElementById('reviewName').value,
-                    rating: document.getElementById('reviewRating').value,
-                    review: document.getElementById('reviewMessage').value
-                };
-
-                fetch(scriptURL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(requestBody)
-                })
-                .then(function() {
-                    alert('Vielen Dank! Ihre Bewertung wurde erfolgreich übermittelt.');
-                    form.reset();
-                    btn.disabled = false;
-                    btn.textContent = 'Bewertung Absenden';
-                })
-                .catch(function(error) {
-                    console.error('Error!', error);
-                    alert('Es gab einen Fehler beim Senden. Bitte versuchen Sie es später erneut.');
-                    btn.disabled = false;
-                    btn.textContent = 'Bewertung Absenden';
-                });
-            });
-        }
-    </script>
 
     <script>
         const translations = {
@@ -672,8 +202,47 @@
                 nav_reviews: "Bewertungen",
                 nav_team: "Inhaber",
                 nav_contact: "Kontakt",
+                hero_title: "Natur. Pflege. Perfektion.",
+                hero_subtitle: "Grün denken. Klar handeln. Evergreens!",
+                hero_desc: "Familiengeführtes Unternehmen mit Leidenschaft für professionelle Grünanlagen- und Grundstückspflege.",
+                hero_btn: "Unverbindlich Anfragen",
+                services_title: "Unsere Leistungen",
+                s1_title: "Rasen- & Grünpflege",
+                s1_i1: "Rasenmahd & Rasenkanten stechen",
+                s1_i2: "Rasen vertikutieren & düngen",
+                s1_i3: "Rasen säen & Rollrasen verlegen",
+                s1_i4: "Unkraut- und Laubentfernung",
+                s1_i5: "Grünschnitt entsorgen",
+                s2_title: "Baum- & Gehölzpflege",
+                s2_i1: "Gehölzschnitt & Gehölze düngen",
+                s2_i2: "Obstbaumschnitt",
+                s2_i3: "Kronenpflege & Totholzentfernung",
+                s2_i4: "Lichtraumschnitt",
+                s2_i5: "Baumfällung & Wurzelrodung",
+                s3_title: "Garten- & Tiefbau",
+                s3_i1: "Pflasterarbeiten & Borde setzen",
+                s3_i2: "Terrassenbau & Wegebau",
+                s3_i3: "Zaunbau & Beete anlegen",
+                s3_i4: "Bodenbearbeitung & Kompost",
+                s3_i5: "Unratentfernung",
+                s4_title: "Bewässerungssysteme",
+                s4_i1: "Professionelle Planung",
+                s4_i2: "Fachgerechter Einbau & Bau",
+                s4_i3: "Wartung & Instandhaltung",
+                s4_i4: "Gehölz- & Baumwässerung",
+                s5_title: "Winterdienst",
+                s5_i1: "Beräumung von Schnee und Eis",
+                s5_i2: "24h Bereitschaft für die Saison",
+                s5_i3: "Selbstständige Kontrollen vor Ort",
+                s5_i4: "Zuverlässiger & unaufgeforderter Einsatz",
+                s5_i5: "Gehweg- & Hofreinigung",
+                tech_title: "Moderne Maschinen & Ausrüstung",
+                tech_desc: "Moderne Arbeitsgeräte erleichtern die Arbeit und liefern gleichmäßige, saubere Ergebnisse. Wir investieren kontinuierlich in hochwertige Fahrzeuge, Aufsitzmäher, Kehrmaschinen und akkubetriebene Profigeräte (Laubpuster, Motorsägen), um Lärm zu minimieren und effizient zu arbeiten. Altbewährtes wird sorgfältig gepflegt – stets mit Blick auf höchste Qualität.",
                 reviews_title: "Was unsere Kunden sagen",
                 review_form_title: "Teilen Sie Ihre Erfahrung",
+                team_title: "Ihre Ansprechpartner",
+                role: "Inhaber",
+                contact_title: "Kontaktieren Sie uns",
                 form_name: "Ihr Name",
                 form_rating: "Bewertung (Sterne)",
                 form_message: "Ihre Nachricht",
@@ -686,8 +255,47 @@
                 nav_reviews: "Reviews",
                 nav_team: "Team",
                 nav_contact: "Contact",
+                hero_title: "Nature. Care. Perfection.",
+                hero_subtitle: "Think green. Act clearly. Evergreens!",
+                hero_desc: "Family-run business with a passion for professional green space and property maintenance.",
+                hero_btn: "Inquire Now",
+                services_title: "Our Services",
+                s1_title: "Lawn & Green Care",
+                s1_i1: "Lawn mowing & edging",
+                s1_i2: "Lawn scarifying & fertilizing",
+                s1_i3: "Sowing & turf laying",
+                s1_i4: "Weed & leaf removal",
+                s1_i5: "Green waste disposal",
+                s2_title: "Tree & Shrub Care",
+                s2_i1: "Pruning & fertilizing shrubs",
+                s2_i2: "Fruit tree pruning",
+                s2_i3: "Crown maintenance & deadwood removal",
+                s2_i4: "Clearance pruning",
+                s2_i5: "Tree felling & root removal",
+                s3_title: "Garden & Civil Engineering",
+                s3_i1: "Paving & setting curbs",
+                s3_i2: "Terrace & path construction",
+                s3_i3: "Fence building & flower beds",
+                s3_i4: "Soil cultivation & compost",
+                s3_i5: "Debris removal",
+                s4_title: "Irrigation Systems",
+                s4_i1: "Professional planning",
+                s4_i2: "Expert installation & construction",
+                s4_i3: "Maintenance & servicing",
+                s4_i4: "Shrub & tree watering",
+                s5_title: "Winter Service",
+                s5_i1: "Snow and ice clearance",
+                s5_i2: "24h seasonal readiness",
+                s5_i3: "Independent on-site checks",
+                s5_i4: "Reliable & proactive deployment",
+                s5_i5: "Pathway & yard cleaning",
+                tech_title: "Modern Machinery & Equipment",
+                tech_desc: "Modern tools make work easier and deliver consistent, clean results. We continuously invest in high-quality vehicles, ride-on mowers, sweepers, and battery-powered professional equipment (leaf blowers, chainsaws) to minimize noise and work efficiently.",
                 reviews_title: "What Our Customers Say",
                 review_form_title: "Share Your Experience",
+                team_title: "Your Contacts",
+                role: "Owner",
+                contact_title: "Contact Us",
                 form_name: "Your Name",
                 form_rating: "Rating (Stars)",
                 form_message: "Your Message",
@@ -697,60 +305,58 @@
 
         window.addEventListener("DOMContentLoaded", function() {
             const grid = document.querySelector(".reviews-grid");
-            if (grid) {
-                const savedReviews = JSON.parse(localStorage.getItem("evergreens_reviews") || "[]");
-                savedReviews.forEach(rev => {
+            
+            // Load saved reviews from localStorage
+            const savedReviews = JSON.parse(localStorage.getItem("evergreens_reviews") || "[]");
+            savedReviews.forEach(rev => {
+                if (grid) {
                     const card = document.createElement("div");
                     card.className = "review-card";
                     card.innerHTML = `<div><div class="review-stars">${rev.rating}</div><p class="review-text">"${rev.review}"</p></div><p class="review-author">— ${rev.name}</p>`;
                     grid.prepend(card);
-                });
-            }
+                }
+            });
 
+            // Review form handler
             const form = document.getElementById("reviewForm");
             if (form) {
                 form.addEventListener("submit", function(e) {
                     e.preventDefault();
+                    const name = document.getElementById("reviewName").value;
+                    const rating = document.getElementById("reviewRating").value;
+                    const review = document.getElementById("reviewMessage").value;
                     const btn = document.getElementById("submitReviewBtn");
-                    if(btn) {
+
+                    if (btn) {
                         btn.disabled = true;
                         btn.textContent = "Wird gesendet...";
                     }
 
-                    const body = {
-                        name: document.getElementById("reviewName").value,
-                        rating: document.getElementById("reviewRating").value,
-                        review: document.getElementById("reviewMessage").value
-                    };
+                    const newRev = { name, rating, review };
+                    
+                    // Save to localStorage
+                    const currentReviews = JSON.parse(localStorage.getItem("evergreens_reviews") || "[]");
+                    currentReviews.unshift(newRev);
+                    localStorage.setItem("evergreens_reviews", JSON.stringify(currentReviews));
 
-                    const savedReviews = JSON.parse(localStorage.getItem("evergreens_reviews") || "[]");
-                    savedReviews.push(body);
-                    localStorage.setItem("evergreens_reviews", JSON.stringify(savedReviews));
-
+                    // Render instantly
                     if (grid) {
                         const card = document.createElement("div");
                         card.className = "review-card";
-                        card.innerHTML = `<div><div class="review-stars">${body.rating}</div><p class="review-text">"${body.review}"</p></div><p class="review-author">— ${body.name}</p>`;
+                        card.innerHTML = `<div><div class="review-stars">${rating}</div><p class="review-text">"${review}"</p></div><p class="review-author">— ${name}</p>`;
                         grid.prepend(card);
                     }
 
-                    const scriptURL = "https://script.google.com/macros/s/AKfycbxL-WXx-roQYRqQaxwLTSG8d52MYzGI5m53HuCh_eMPRhvP6aUm0NzaecckB8wZYadxEw/exec";
-                    fetch(scriptURL, {
-                        method: "POST",
-                        mode: "no-cors",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify(body)
-                    }).catch(err => console.log(err));
-
                     alert("Vielen Dank! Ihre Bewertung wurde übermittelt.");
                     form.reset();
-                    if(btn) {
+                    if (btn) {
                         btn.disabled = false;
                         btn.textContent = "Bewertung Absenden";
                     }
                 });
             }
 
+            // Language Toggle
             let currentLang = 'de';
             const toggleBtn = document.getElementById('langToggle');
             if (toggleBtn) {
