@@ -459,7 +459,7 @@
         <h2 class="section-title" data-i18n="services_title">Unsere Leistungen</h2>
         <div class="services-grid">
             <div class="service-card">
-                <h3>Rasen- & Grünpflege</h3>
+                <h3 data-i18n="s1_title">Rasen- & Grünpflege</h3>
                 <ul class="service-list">
                     <li>Rasenmahd & Rasenkanten stechen</li>
                     <li>Rasen vertikutieren & düngen</li>
@@ -469,7 +469,7 @@
                 </ul>
             </div>
             <div class="service-card">
-                <h3>Baum- & Gehölzpflege</h3>
+                <h3 data-i18n="s2_title">Baum- & Gehölzpflege</h3>
                 <ul class="service-list">
                     <li>Gehölzschnitt & Gehölze düngen</li>
                     <li>Obstbaumschnitt</li>
@@ -479,7 +479,7 @@
                 </ul>
             </div>
             <div class="service-card">
-                <h3>Garten- & Tiefbau</h3>
+                <h3 data-i18n="s3_title">Garten- & Tiefbau</h3>
                 <ul class="service-list">
                     <li>Pflasterarbeiten & Borde setzen</li>
                     <li>Terrassenbau & Wegebau</li>
@@ -489,7 +489,7 @@
                 </ul>
             </div>
             <div class="service-card">
-                <h3>Bewässerungssysteme</h3>
+                <h3 data-i18n="s4_title">Bewässerungssysteme</h3>
                 <ul class="service-list">
                     <li>Professionelle Planung</li>
                     <li>Fachgerechter Einbau & Bau</li>
@@ -498,7 +498,7 @@
                 </ul>
             </div>
             <div class="service-card">
-                <h3>Winterdienst</h3>
+                <h3 data-i18n="s5_title">Winterdienst</h3>
                 <ul class="service-list">
                     <li>Beräumung von Schnee und Eis</li>
                     <li>24h Bereitschaft für die Saison</li>
@@ -627,44 +627,7 @@
     </footer>
 
     <!-- Review Form Script -->
-    <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwkFqN2fKCmI5A8v-OUvViSNsInlERmbX0biE1gdVRiMIfPSqAkuyg-zHgPCADxvI5N3Q/exec';
-        const form = document.getElementById('reviewForm');
-        if (form) {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const btn = document.getElementById('submitReviewBtn');
-                btn.disabled = true;
-                btn.textContent = 'Wird gesendet...';
-
-                const requestBody = {
-                    name: document.getElementById('reviewName').value,
-                    rating: document.getElementById('reviewRating').value,
-                    review: document.getElementById('reviewMessage').value
-                };
-
-                fetch(scriptURL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(requestBody)
-                })
-                .then(function() {
-                    alert('Vielen Dank! Ihre Bewertung wurde erfolgreich übermittelt.');
-                    form.reset();
-                    btn.disabled = false;
-                    btn.textContent = 'Bewertung Absenden';
-                })
-                .catch(function(error) {
-                    console.error('Error!', error);
-                    alert('Es gab einen Fehler beim Senden. Bitte versuchen Sie es später erneut.');
-                    btn.disabled = false;
-                    btn.textContent = 'Bewertung Absenden';
-                });
-            });
-        }
-    </script>
-
+    
 <script>
     const translations = {
         de: {
@@ -680,12 +643,17 @@
             phil_title: "Grün denken. Klar handeln. Evergreens!",
             phil_desc: "Familiengeführtes Unternehmen mit Leidenschaft für professionelle Grünanlagen- und Grundstückspflege.",
             services_title: "Unsere Leistungen",
+            s1_title: "Rasen- & Grünpflege",
+            s2_title: "Baum- & Gehölzpflege",
+            s3_title: "Garten- & Tiefbau",
+            s4_title: "Bewässerungssysteme",
+            s5_title: "Winterdienst",
+            tech_title: "Moderne Maschinen & Ausrüstung",
             reviews_title: "Was unsere Kunden sagen",
             review_form_title: "Teilen Sie Ihre Erfahrung",
             team_title: "Ihre Ansprechpartner",
             role: "Inhaber",
-            contact_title: "Kontaktieren Sie uns",
-            tech_title: "Moderne Maschinen & Ausrüstung"
+            contact_title: "Kontaktieren Sie uns"
         },
         en: {
             nav_services: "Services",
@@ -700,12 +668,17 @@
             phil_title: "Think green. Act clearly. Evergreens!",
             phil_desc: "Family-run business with a passion for professional landscaping and property maintenance.",
             services_title: "Our Services",
+            s1_title: "Lawn & Green Care",
+            s2_title: "Tree & Shrub Care",
+            s3_title: "Garden & Civil Engineering",
+            s4_title: "Irrigation Systems",
+            s5_title: "Winter Service",
+            tech_title: "Modern Machinery & Equipment",
             reviews_title: "What Our Customers Say",
             review_form_title: "Share Your Experience",
             team_title: "Your Contacts",
             role: "Owner",
-            contact_title: "Contact Us",
-            tech_title: "Modern Machinery & Equipment"
+            contact_title: "Contact Us"
         }
     };
 
@@ -725,6 +698,3 @@
         });
     }
 </script>
-
-</body>
-</html>
