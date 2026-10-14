@@ -526,7 +526,7 @@
                 const btn = document.getElementById("submitReviewBtn") || form.querySelector("button[type=\"submit\"]");
                 if(btn) {
                     btn.disabled = true;
-                    btn.textContent = "Wird gesendet...";
+                    btn.textContent = "Sending...";
                 }
                 const body = {
                     name: document.getElementById("reviewName").value,
@@ -549,19 +549,19 @@
                     body: JSON.stringify(body)
                 })
                 .then(function() {
-                    alert("Vielen Dank! Ihre Bewertung wurde übermittelt.");
+                    alert("Thank you! Your review has been submitted.");
                     form.reset();
                     if(btn) {
                         btn.disabled = false;
-                        btn.textContent = "Bewertung Absenden";
+                        btn.textContent = "Submit Review";
                     }
                 })
                 .catch(function(error) {
                     console.error("Error!", error);
-                    alert("Bewertung wurde lokal angezeigt. Danke!");
+                    alert("Review displayed locally. Thank you!");
                     if(btn) {
                         btn.disabled = false;
-                        btn.textContent = "Bewertung Absenden";
+                        btn.textContent = "Submit Review";
                     }
                 });
             });
@@ -669,10 +669,14 @@
                 e.preventDefault();
                 currentLang = currentLang === 'de' ? 'en' : 'de';
                 this.textContent = currentLang === 'de' ? 'EN / DE' : 'DE / EN';
+                console.log("Switching language to:", currentLang);
+                
                 document.querySelectorAll('[data-i18n]').forEach(el => {
                     const key = el.getAttribute('data-i18n');
                     if (translations[currentLang][key]) {
                         el.textContent = translations[currentLang][key];
+                    } else {
+                        console.warn("Missing translation key:", key);
                     }
                 });
             });
