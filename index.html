@@ -627,41 +627,64 @@
 
     <!-- Review Form Script -->
     <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwkFqN2fKCmI5A8v-OUvViSNsInlERmbX0biE1gdVRiMIfPSqAkuyg-zHgPCADxvI5N3Q/exec';
-        const form = document.getElementById('reviewForm');
-        if (form) {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const btn = document.getElementById('submitReviewBtn');
-                btn.disabled = true;
-                btn.textContent = 'Wird gesendet...';
-
-                const requestBody = {
-                    name: document.getElementById('reviewName').value,
-                    rating: document.getElementById('reviewRating').value,
-                    review: document.getElementById('reviewMessage').value
-                };
-
-                fetch(scriptURL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(requestBody)
-                })
-                .then(function() {
-                    alert('Vielen Dank! Ihre Bewertung wurde erfolgreich übermittelt.');
-                    form.reset();
-                    btn.disabled = false;
-                    btn.textContent = 'Bewertung Absenden';
-                })
-                .catch(function(error) {
-                    console.error('Error!', error);
-                    alert('Es gab einen Fehler beim Senden. Bitte versuchen Sie es später erneut.');
-                    btn.disabled = false;
-                    btn.textContent = 'Bewertung Absenden';
-                });
+    // Load reviews from localStorage on startup
+    window.addEventListener("DOMContentLoaded", function() {
+        const grid = document.querySelector(".reviews-grid");
+        if (grid) {
+            const savedReviews = JSON.parse(localStorage.getItem("evergreens_reviews") || "[]");
+            savedReviews.forEach(rev => {
+                const card = document.createElement("div");
+                card.className = "review-card";
+                card.innerHTML = `<div><div class="review-stars">${rev.rating}</div><p class="review-text">"${rev.review}"</p></div><p class="review-author">— ${rev.name}</p>`;
+                grid.prepend(card);
             });
         }
-    </script>
-</body>
-</html>
+
+        // Review form handler
+        const form = document.getElementById("reviewForm");
+        if (form) {
+            form.addEventListener("submit", function(e) {
+                e.preventDefault();
+                const btn = document.getElementById("submitReviewBtn");
+                if(btn) {
+                    btn.disabled = true;
+                    btn.textContent = "Wird gesendet...";
+                }
+
+                const body = {
+                    name: document.getElementById("reviewName").value,
+                    rating: document.getElementById("reviewRating").value,
+                    review: document.getElementById("reviewMessage").value
+                };
+
+                // Save locally and display instantly
+                const savedReviews = JSON.parse(localStorage.getItem("evergreens_reviews") || "[]");
+                savedReviews.push(body);
+                localStorage.setItem("evergreens_reviews", JSON.stringify(savedReviews));
+
+                const grid = document.querySelector(".reviews-grid");
+                if (grid) {
+                    const card = document.createElement("div");
+                    card.className = "review-card";
+                    card.innerHTML = `<div><div class="review-stars">${body.rating}</div><p class="review-text">"${body.review}"</p></div><p class="review-author">— ${body.name}</p>`;
+                    grid.prepend(card);
+                }
+
+                const scriptURL = "https://script.google.com/macros/s/AKfycbxL-WXx-roQYRqQaxwLTSG8d52MYzGI5m53HuCh_eMPRhvP6aUm0NzaecckB8wZYadxEw/exec";
+                fetch(scriptURL, {
+                    method: "POST",
+                    mode: "no-cors",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(body)
+                }).catch(err => console.log(err));
+
+                alert("Vielen Dank! Ihre Bewertung wurde übermittelt.");
+                form.reset();
+                if(btn) {
+                    btn.disabled = false;
+                    btn.textContent = "Bewertung Absenden";
+                }
+            });
+        }
+    });
+</script>
