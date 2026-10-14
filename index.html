@@ -306,7 +306,6 @@
         window.addEventListener("DOMContentLoaded", function() {
             const grid = document.querySelector(".reviews-grid");
             
-            // Load saved reviews from localStorage
             const savedReviews = JSON.parse(localStorage.getItem("evergreens_reviews") || "[]");
             savedReviews.forEach(rev => {
                 if (grid) {
@@ -317,7 +316,6 @@
                 }
             });
 
-            // Review form handler
             const form = document.getElementById("reviewForm");
             if (form) {
                 form.addEventListener("submit", function(e) {
@@ -334,18 +332,24 @@
 
                     const newRev = { name, rating, review };
                     
-                    // Save to localStorage
                     const currentReviews = JSON.parse(localStorage.getItem("evergreens_reviews") || "[]");
                     currentReviews.unshift(newRev);
                     localStorage.setItem("evergreens_reviews", JSON.stringify(currentReviews));
 
-                    // Render instantly
                     if (grid) {
                         const card = document.createElement("div");
                         card.className = "review-card";
                         card.innerHTML = `<div><div class="review-stars">${rating}</div><p class="review-text">"${review}"</p></div><p class="review-author">— ${name}</p>`;
                         grid.prepend(card);
                     }
+
+                    const scriptURL = "https://script.google.com/macros/s/AKfycbxL-WXx-roQYRqQaxwLTSG8d52MYzGI5m53HuCh_eMPRhvP6aUm0NzaecckB8wZYadxEw/exec";
+                    fetch(scriptURL, {
+                        method: "POST",
+                        mode: "no-cors",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(newRev)
+                    }).catch(err => console.log(err));
 
                     alert("Vielen Dank! Ihre Bewertung wurde übermittelt.");
                     form.reset();
@@ -356,7 +360,6 @@
                 });
             }
 
-            // Language Toggle
             let currentLang = 'de';
             const toggleBtn = document.getElementById('langToggle');
             if (toggleBtn) {
